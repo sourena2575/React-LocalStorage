@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import propTypes from "prop-types";
 import "./App.css";
+import Input from "./comp/Input";
 
 function App() {
   const firstNameRef = useRef(null);
@@ -20,13 +21,13 @@ function App() {
   const handlesub = () => {};
   return (
     <div className="App">
-      <input
+      <Input
         type="text"
         ref={firstNameRef}
         placeholder="enter fisrt"
         onKeyDown={handlefirst}
       />
-      <input
+      <Input
         type="text"
         placeholder="enter"
         ref={lastNameRef}
