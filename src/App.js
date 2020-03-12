@@ -1,43 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
-import propTypes from "prop-types";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useReducer,
+  createContext
+} from "react";
 import "./App.css";
-import Input from "./comp/Input";
+
+import ContextInputProvider from "./comp/Context";
 
 function App() {
-  const firstNameRef = useRef(null);
-  const lastNameRef = useRef(null);
-  const subRef = useRef(null);
-  useEffect(() => {
-    firstNameRef.current.focus();
-  }, []);
-  const handlefirst = e => {
-    e.keyCode === 13
-      ? lastNameRef.current.focus()
-      : firstNameRef.current.focus();
-  };
-  const handlelast = e => {
-    e.keyCode === 13 ? subRef.current.focus() : lastNameRef.current.focus();
-  };
-  const handlesub = () => {};
-  return (
-    <div className="App">
-      <Input
-        type="text"
-        ref={firstNameRef}
-        placeholder="enter fisrt"
-        onKeyDown={handlefirst}
-      />
-      <Input
-        type="text"
-        placeholder="enter"
-        ref={lastNameRef}
-        onKeyDown={handlelast}
-      />
-      <button ref={subRef} onKeyDown={handlesub}>
-        click
-      </button>
-    </div>
-  );
+  return <ContextInputProvider></ContextInputProvider>;
 }
 
 export default App;
